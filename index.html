@@ -4,72 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title>Document</title>
+    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="index.css">
 
-<script>
-    function showPostion(){
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(succesCallback,ErrorCallback)
+    <script>
+        function showPostion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(succesCallback, ErrorCallback)
+            }
+            else {
+                alert('geolocation not supported ')
+            }
         }
-        else  { 
-            alert('geolocation not supported ')}
-    }
-        function succesCallback(position)
-        {
-            var longitude=position.coords.longitude
-            var latitude=position.coords.latitude
-            var latlong=latitude+','+longitude;
-            var myMapUrl='https://maps.googleapis.com/maps/api/staticmap?center='+latlong+'&zoom=16&size=400x300&output=embed&key=AIzaSyAxGO3UYs5fkSv9Aj6MDHN1DM8vHsEF_XU';
-            document.getElementById("myPosition").innerHTML="my position is latitude "+latitude+"longitude"+longitude;
-            var myMap=document.getElementById('myMap');
-            myMap.setAttribute('src',myMapUrl);
+        function succesCallback(position) {
+            var longitude = position.coords.longitude
+            var latitude = position.coords.latitude
+            var latlong = latitude + ',' + longitude;
+            var myMapUrl = 'https://maps.googleapis.com/maps/api/staticmap?center=' + latlong + '&zoom=16&size=400x300&output=embed&key=AIzaSyAxGO3UYs5fkSv9Aj6MDHN1DM8vHsEF_XU';
+            document.getElementById("myPosition").innerHTML = "my position is latitude " + latitude + "longitude" + longitude;
+            var myMap = document.getElementById('myMap');
+            myMap.setAttribute('src', myMapUrl);
             alert('success');
-       }
+        }
 
-function ErrorCallback(error)
-{
-    var myPosition=document.getElementById('myPosition')
-    if(error.code == 1){
-        myPosition.innerHTML="WE requested but it aws denided by u"
-    }else if(error.code == 2){
-        myPosition.innerHTML="Ur network is down"
-    }else if(error.code == 3){
-        myPosition.innerHTML="Time out" 
-    }else{
-        myPosition.innerHTML="Unknown"        
-    }
-}
-</script>
+        function ErrorCallback(error) {
+            var myPosition = document.getElementById('myPosition')
+            if (error.code == 1) {
+                myPosition.innerHTML = "WE requested but it aws denided by u"
+            } else if (error.code == 2) {
+                myPosition.innerHTML = "Ur network is down"
+            } else if (error.code == 3) {
+                myPosition.innerHTML = "Time out"
+            } else {
+                myPosition.innerHTML = "Unknown"
+            }
+        }
+    </script>
 
 </head>
 
 <body id='home' class="open-left">
-   <section class="center">
-        <header> 
+    <section class="center">
+        <header>
             <nav>
                 Navigation
             </nav>
 
-         </header>
-   <section>  
-   
-       <main>
-           <article>
-               <h1 id="myPosition"></h1>
-               <button onclick='showPostion()'>Show position</button>
-               <div id='embed' >
-                   <img src="" id='myMap'>
-               </div>
+        </header>
+        <section>
 
-           </article>
-       </main>
-   </section>
-    <footer>   Footer    </footer>
-       </section>
-    
+            <main>
+                <article>
+                    <h1 id="myPosition"></h1>
+                    <button onclick='showPostion()'>Show position</button>
+                    <div id='embed'>
+                        <img src="" id='myMap'>
+                    </div>
+
+                </article>
+            </main>
+        </section>
+        <footer> Footer </footer>
+    </section>
+
     <script type="text/javascript" src="index.js"></script>
-
-    
+<h2>heyy chnages are made </h2>
 </body>
 </html>
